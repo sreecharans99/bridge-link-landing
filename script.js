@@ -1,35 +1,79 @@
-// AOS Init on page load
-window.addEventListener('DOMContentLoaded', () => {
+// Initialize animations and counters
+document.addEventListener("DOMContentLoaded", function () {
   AOS.init();
-});
 
-// Counter animation logic
-const counters = document.querySelectorAll(".counter");
-counters.forEach(counter => {
-  const update = () => {
-    const target = +counter.getAttribute("data-count");
-    const current = +counter.innerText;
-    const increment = Math.ceil(target / 100);
-    if (current < target) {
-      counter.innerText = current + increment;
-      setTimeout(update, 40);
-    } else {
-      counter.innerText = target;
+  // Counter animation for stats
+  const counters = document.querySelectorAll(".counter");
+  counters.forEach(counter => {
+    const update = () => {
+      const target = +counter.getAttribute("data-count");
+      const current = +counter.innerText;
+      const increment = Math.ceil(target / 100);
+      if (current < target) {
+        counter.innerText = current + increment;
+        setTimeout(update, 40);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+
+  // Feature carousel slider
+  const slider = document.getElementById("featureSlider");
+  if (slider) {
+    const originalSlides = slider.querySelectorAll("div.flex-shrink-0");
+    let currentIndex = 1;
+
+    const firstClone = originalSlides[0].cloneNode(true);
+    const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
+
+    slider.appendChild(firstClone);
+    slider.insertBefore(lastClone, originalSlides[0]);
+
+    const allSlides = slider.querySelectorAll("div.flex-shrink-0");
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    function updateScales() {
+      allSlides.forEach((slide, i) => {
+        const card = slide.querySelector("div.bg-gray-100");
+        card.classList.toggle("scale-110", i === currentIndex);
+        card.classList.toggle("scale-100", i !== currentIndex);
+      });
     }
-  };
-  update();
+
+    function rotateFeatures() {
+      currentIndex++;
+      slider.style.transition = "transform 0.5s ease-in-out";
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateScales();
+
+      if (currentIndex === allSlides.length - 1) {
+        setTimeout(() => {
+          slider.style.transition = "none";
+          currentIndex = 1;
+          slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+          updateScales();
+        }, 500);
+      }
+    }
+
+    updateScales();
+    setInterval(rotateFeatures, 3000);
+  }
 });
 
-// Open modal by ID
+// Modal open function
 function openModal(id) {
   document.getElementById(id).classList.remove("hidden");
 }
 
-// Close modal and reset all relevant form fields
+// Modal close function + reset
 function closeModal(id) {
-  document.getElementById(id).classList.add("hidden");
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  modal.classList.add("hidden");
 
-  // Reset respective modals
   if (id === 'demoModal') {
     document.getElementById("modalThankYou").classList.add("hidden");
     document.getElementById("name").value = "";
@@ -47,17 +91,7 @@ function closeModal(id) {
   }
 }
 
-// Handle Demo modal submission
-function handleDemoSubmit(event) {
-  event.preventDefault();
-  document.getElementById("modalThankYou").classList.remove("hidden");
-  setTimeout(() => {
-    closeModal("demoModal");
-  }, 2000);
-  return false;
-}
-
-// Handle Explore Now modal form
+// Handle Explore Modal Form
 function handleExploreSubmit(event) {
   event.preventDefault();
   const name = document.getElementById("exploreName").value.trim();
@@ -68,74 +102,42 @@ function handleExploreSubmit(event) {
   return false;
 }
 
-// Handle Email Signup form at the bottom
-function submitForm(event) {
+// Handle Demo Modal Form
+function handleDemoSubmit(event) {
   event.preventDefault();
-  const email = document.getElementById("email").value;
-  if (email.trim() !== "") {
-    document.getElementById("formMessage").classList.remove("hidden");
-  }
+  document.getElementById("modalThankYou").classList.remove("hidden");
+  setTimeout(() => closeModal("demoModal"), 2000);
   return false;
 }
 
-// Handle Help button form submission
+// Handle Help Modal Form
 function handleHelpSubmit(event) {
   event.preventDefault();
   document.getElementById("helpThankYou").classList.remove("hidden");
-  setTimeout(() => {
-    closeModal("helpModal");
-  }, 2000);
+  setTimeout(() => closeModal("helpModal"), 2000);
   return false;
 }
 
-// Circular auto-rotating feature carousel with enlarged center
-const slider = document.getElementById("featureSlider");
-const originalSlides = slider.querySelectorAll("div.flex-shrink-0");
-let currentIndex = 1;
+// Function to handle the submission of the "Sign Up for a Free Demo" form
+function submitForm(event) {
+  // Prevent the default form submission (which reloads the page)
+  event.preventDefault();
 
-// Clone first and last slides for infinite loop effect
-const firstClone = originalSlides[0].cloneNode(true);
-const lastClone = originalSlides[originalSlides.length - 1].cloneNode(true);
-slider.appendChild(firstClone);
-slider.insertBefore(lastClone, originalSlides[0]);
+  // Get the value entered in the email input field
+  const email = document.getElementById("email").value;
 
-const allSlides = slider.querySelectorAll("div.flex-shrink-0");
+  // If the email is not empty after trimming whitespace
+  if (email.trim() !== "") {
+    // Show the thank-you message by removing the 'hidden' class
+    const message = document.getElementById("formMessage");
+    message.classList.remove("hidden");
 
-// Set initial position
-slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-function updateScales() {
-  allSlides.forEach((slide, i) => {
-    const card = slide.querySelector("div.bg-gray-100");
-    if (i === currentIndex) {
-      card.classList.add("scale-110");
-      card.classList.remove("scale-100");
-    } else {
-      card.classList.remove("scale-110");
-      card.classList.add("scale-100");
-    }
-  });
-}
-
-function rotateFeatures() {
-  currentIndex++;
-  slider.style.transition = "transform 0.5s ease-in-out";
-  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  updateScales();
-
-  // Reset to actual first after the clone
-  if (currentIndex === allSlides.length - 1) {
+    // Hide the message again after 5 seconds (5000 milliseconds)
     setTimeout(() => {
-      slider.style.transition = "none";
-      currentIndex = 1;
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateScales();
-    }, 500);
+      message.classList.add("hidden");
+    }, 5000);
   }
+
+  // Return false to ensure the form does not try to submit again
+  return false;
 }
-
-// Initialize
-updateScales();
-setInterval(rotateFeatures, 3000);
-
-

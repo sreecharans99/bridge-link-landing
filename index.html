@@ -21,156 +21,237 @@
 </head>
 <body class="bg-white text-gray-800 font-sans min-h-screen flex flex-col">
 
-  <!-- Main Content -->
-  <div class="flex-grow">
-    <!-- Navbar -->
-    <header class="bg-blue-900 text-white py-6 px-6 sticky top-0 z-50 shadow-lg">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <img src="sigma-weave-logo.png" alt="Sigma Weave Logo" class="h-10 w-auto" />
-          <h1 class="text-2xl font-bold">BridgeLink Nano</h1>
-        </div>
-        <nav>
-          <a href="#features" class="hover:underline px-3">Features</a>
-          <a href="#signup" class="hover:underline px-3">Demo</a>
-        </nav>
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-6 px-6 sticky top-0 z-50 shadow-lg">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="BLNano.png" alt="Sigma Weave Logo" class="h-10 w-auto" />
+        <h1 class="text-2xl font-bold">BridgeLink Nano</h1>
       </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="text-center py-16 bg-blue-900 text-white" data-aos="fade-down">
-      <h1 class="text-4xl font-bold">BridgeLink Nano</h1>
-      <p class="mt-4 text-xl font-light">Lightweight Integration for Small Teams</p>
-    </section>
-
-    <!-- Features Section (carousel + static) -->
-    <section id="features" class="py-16 px-6 max-w-7xl mx-auto text-center">
-      <h2 class="text-2xl font-semibold mb-10">Why BridgeLink Nano?</h2>
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <!-- Left Column -->
-        <div class="flex flex-col gap-4 w-full md:w-1/4">
-          <div class="bg-blue-50 p-4 rounded shadow text-left">
-            <h3 class="font-semibold text-blue-800">Built for Small Teams</h3>
-            <p class="text-sm text-gray-600 mt-1">Ideal for startups and agile squads that need smooth, no-friction integration.</p>
-          </div>
-          <div class="bg-blue-50 p-4 rounded shadow text-left">
-            <h3 class="font-semibold text-blue-800">Enterprise-Ready</h3>
-            <p class="text-sm text-gray-600 mt-1">Secure, scalable, and customizable for various internal tools and systems.</p>
-          </div>
-        </div>
-
-        <!-- Center Carousel -->
-        <div class="w-full md:w-1/2 overflow-hidden">
-          <div id="featureSlider" class="flex transition-transform duration-700 ease-in-out w-full">
-            <div class="flex-shrink-0 w-full px-4">
-              <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
-                <h3 class="font-bold text-lg mb-2">Plug-and-Play Setup</h3>
-                <p>No coding needed. Deploy in minutes.</p>
-              </div>
-            </div>
-            <div class="flex-shrink-0 w-full px-4">
-              <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
-                <h3 class="font-bold text-lg mb-2">Legacy Compatible</h3>
-                <p>Works even with older internal systems.</p>
-              </div>
-            </div>
-            <div class="flex-shrink-0 w-full px-4">
-              <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
-                <h3 class="font-bold text-lg mb-2">Real-Time Sync</h3>
-                <p>Live updates. Zero lag. Full control.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="flex flex-col gap-4 w-full md:w-1/4">
-          <div class="bg-blue-50 p-4 rounded shadow text-left">
-            <h3 class="font-semibold text-blue-800">Minimal Training</h3>
-            <p class="text-sm text-gray-600 mt-1">Designed with simplicity so even non-tech folks can use it effortlessly.</p>
-          </div>
-          <div class="bg-blue-50 p-4 rounded shadow text-left">
-            <h3 class="font-semibold text-blue-800">Built-in Monitoring</h3>
-            <p class="text-sm text-gray-600 mt-1">Track integrations in real-time and resolve issues instantly.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mockup Image -->
-    <section class="px-6 py-12 bg-gray-50 text-center" data-aos="zoom-in-up">
-      <div class="mx-auto w-full max-w-4xl rounded shadow-lg overflow-hidden">
-        <img src="mockup.jpg" alt="BridgeLink Nano Visual Mockup" class="w-full h-auto rounded" />
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="py-16 px-6 bg-gray-100 text-center">
-      <h2 class="text-2xl font-semibold mb-10">Trusted by the Numbers</h2>
-      <div class="flex flex-wrap justify-center gap-10 text-blue-900 font-bold text-3xl">
-        <div><span class="counter" data-count="120">0</span>+ Teams</div>
-        <div><span class="counter" data-count="99">0</span>% Uptime</div>
-        <div><span class="counter" data-count="5">0</span> Min Setup</div>
-      </div>
-    </section>
-
-    <!-- CTA Buttons -->
-    <section class="py-16 px-6 text-center" data-aos="fade-up">
-      <h2 class="text-2xl font-semibold mb-4">Ready to Simplify Your Integrations?</h2>
-      <p class="mb-6">Join dozens of small teams already using BridgeLink Nano.</p>
-      <div class="flex flex-col sm:flex-row sm:space-x-4 gap-4 items-center justify-center">
-        <button onclick="openModal('exploreModal')" class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded text-lg w-full sm:w-auto">Explore Now</button>
-        <button onclick="openModal('demoModal')" class="bg-blue-700 hover:bg-blue-800 text-white py-3 px-6 rounded text-lg w-full sm:w-auto">Request a Demo</button>
-      </div>
-    </section>
-
-    <!-- Email Signup -->
-    <section id="signup" class="px-6 py-12 bg-blue-50 text-center" data-aos="fade-up">
-      <h3 class="text-xl font-semibold mb-4">Sign Up for a Free Demo</h3>
-      <form onsubmit="return submitForm(event)" class="max-w-md mx-auto">
-        <input type="email" id="email" required placeholder="Enter your email" class="w-full px-4 py-2 border rounded mb-4" />
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">Submit</button>
-      </form>
-      <p id="formMessage" class="mt-4 text-green-600 font-medium hidden">✅ Thank you! We’ll reach out soon.</p>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="bg-white px-6 py-12 text-center">
-      <h2 class="text-2xl font-semibold mb-8">What Teams Are Saying</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <div class="bg-gray-100 p-4 rounded shadow">
-          <p>"BridgeLink Nano saved us weeks of dev time!"</p>
-          <p class="mt-2 text-sm text-gray-500">— Alex, Dev Lead</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded shadow">
-          <p>"Even non-tech folks could use it easily."</p>
-          <p class="mt-2 text-sm text-gray-500">— Priya, Ops Manager</p>
-        </div>
-        <div class="bg-gray-100 p-4 rounded shadow">
-          <p>"Perfect for our old ERP system."</p>
-          <p class="mt-2 text-sm text-gray-500">— Marco, CTO</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!--- Footer with logo -->
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <div class="flex flex-col items-center gap-2">
-      <img src="sigma-weave-logo.png" alt="Sigma Weave Logo" class="h-10 w-auto" />
-      <p>&copy; 2025 Sigma Weave | All Rights Reserved</p>
+      <nav>
+        <a href="#features" class="hover:underline px-3">Features</a>
+        <a href="#signup" class="hover:underline px-3">Demo</a>
+      </nav>
     </div>
-  </footer>
+  </header>
+
+  <!-- Hero -->
+  <section class="text-center py-16 bg-blue-900 text-white" data-aos="fade-down">
+    <h1 class="text-4xl font-bold">BridgeLink Nano</h1>
+    <p class="mt-4 text-xl font-light">Lightweight Integration for Small Teams</p>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-16 px-6 max-w-7xl mx-auto text-center">
+    <h2 class="text-2xl font-semibold mb-10">Why BridgeLink Nano?</h2>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <!-- Left Features -->
+      <div class="flex flex-col gap-4 w-full md:w-1/4">
+        <div class="bg-blue-50 p-4 rounded shadow text-left">
+          <h3 class="font-semibold text-blue-800">Built for Small Teams</h3>
+          <p class="text-sm text-gray-600 mt-1">Ideal for startups and agile squads that need smooth, no-friction integration.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded shadow text-left">
+          <h3 class="font-semibold text-blue-800">Enterprise-Ready</h3>
+          <p class="text-sm text-gray-600 mt-1">Secure, scalable, and customizable for various internal tools and systems.</p>
+        </div>
+      </div>
+      <!-- Feature Carousel -->
+      <div class="w-full md:w-1/2 overflow-hidden">
+        <div id="featureSlider" class="flex transition-transform duration-700 ease-in-out w-full">
+          <div class="flex-shrink-0 w-full px-4">
+            <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
+              <h3 class="font-bold text-lg mb-2">Plug-and-Play Setup</h3>
+              <p>No coding needed. Deploy in minutes.</p>
+            </div>
+          </div>
+          <div class="flex-shrink-0 w-full px-4">
+            <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
+              <h3 class="font-bold text-lg mb-2">Legacy Compatible</h3>
+              <p>Works even with older internal systems.</p>
+            </div>
+          </div>
+          <div class="flex-shrink-0 w-full px-4">
+            <div class="bg-gray-100 p-6 rounded shadow transform scale-100 transition-all">
+              <h3 class="font-bold text-lg mb-2">Real-Time Sync</h3>
+              <p>Live updates. Zero lag. Full control.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Features -->
+      <div class="flex flex-col gap-4 w-full md:w-1/4">
+        <div class="bg-blue-50 p-4 rounded shadow text-left">
+          <h3 class="font-semibold text-blue-800">Minimal Training</h3>
+          <p class="text-sm text-gray-600 mt-1">Designed with simplicity so even non-tech folks can use it effortlessly.</p>
+        </div>
+        <div class="bg-blue-50 p-4 rounded shadow text-left">
+          <h3 class="font-semibold text-blue-800">Built-in Monitoring</h3>
+          <p class="text-sm text-gray-600 mt-1">Track integrations in real-time and resolve issues instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mockup Image -->
+<section class="px-6 py-12 bg-gray-50 text-center" data-aos="zoom-in-up">
+  <div class="mx-auto w-full max-w-4xl rounded shadow-lg overflow-hidden">
+    <img src="mockup.jpg" alt="BridgeLink Nano Visual Mockup" class="w-full h-auto rounded" />
+  </div>
+</section>
+
+  <!-- Stats -->
+  <section class="py-16 px-6 bg-gray-100 text-center">
+    <h2 class="text-2xl font-semibold mb-10">Trusted by the Numbers</h2>
+    <div class="flex flex-wrap justify-center gap-10 text-blue-900 font-bold text-3xl">
+      <div><span class="counter" data-count="120">0</span>+ Teams</div>
+      <div><span class="counter" data-count="99">0</span>% Uptime</div>
+      <div><span class="counter" data-count="5">0</span> Min Setup</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 text-center">
+    <h2 class="text-2xl font-semibold mb-4">Ready to Simplify Your Integrations?</h2>
+    <p class="mb-6">Join dozens of small teams already using BridgeLink Nano.</p>
+    <div class="flex flex-col sm:flex-row sm:space-x-4 gap-4 items-center justify-center">
+      <button onclick="openModal('exploreModal')" class="bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded text-lg w-full sm:w-auto">Explore Now</button>
+      <button onclick="openModal('demoModal')" class="bg-blue-700 hover:bg-blue-800 text-white py-3 px-6 rounded text-lg w-full sm:w-auto">Request a Demo</button>
+    </div>
+  </section>
 
   <!-- Floating Help Button -->
   <div class="fixed bottom-5 right-5 z-50">
     <button onclick="openModal('helpModal')" class="w-12 h-12 bg-blue-600 text-white text-lg rounded-full flex items-center justify-center shadow-lg animate-bounce hover:scale-110 transition-transform" title="Need Help?">🆘</button>
   </div>
+  <!-- Explore Modal -->
+  <div id="exploreModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <h2 class="text-lg font-semibold mb-4">Explore Now</h2>
+      <form onsubmit="return handleExploreSubmit(event)">
+        <input type="text" id="exploreName" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Name" />
+        <input type="email" id="exploreEmail" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Email" />
+        <button type="submit" class="w-full bg-green-600 text-white py-2 rounded">Submit</button>
+      </form>
+      <div id="accessLinks" class="hidden mt-4 text-green-600">✅ Credentials will be shared shortly!</div>
+      <button onclick="closeModal('exploreModal')" class="mt-4 text-sm text-blue-600 underline">Close</button>
+    </div>
+  </div>
 
-  <!-- Modals and Scripts -->
-  <!-- (Keep your modals and script.js references below as-is) -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Demo Modal -->
+  <div id="demoModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <h2 class="text-lg font-semibold mb-4">Request a Demo</h2>
+      <form onsubmit="return handleDemoSubmit(event)">
+        <input type="text" id="name" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Name" />
+        <input type="email" id="demoEmail" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Email" />
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Submit</button>
+      </form>
+      <div id="modalThankYou" class="hidden mt-4 text-green-600">✅ We'll reach out soon!</div>
+      <button onclick="closeModal('demoModal')" class="mt-4 text-sm text-blue-600 underline">Close</button>
+    </div>
+  </div>
+
+  <!-- Help Modal -->
+  <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex justify-center items-center">
+    <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+      <h2 class="text-lg font-semibold mb-4">Need Help?</h2>
+      <form onsubmit="return handleHelpSubmit(event)">
+        <input type="text" id="helpName" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Name" />
+        <input type="text" id="helpPhone" class="w-full border px-3 py-2 mb-2 rounded" placeholder="Phone Number" />
+        <input type="email" id="helpEmail" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="Your Email" />
+        <textarea id="helpMessage" required class="w-full border px-3 py-2 mb-2 rounded" placeholder="How can we help?"></textarea>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Submit</button>
+      </form>
+      <div id="helpThankYou" class="hidden mt-4 text-green-600">✅ We’ll get back to you shortly!</div>
+      <button onclick="closeModal('helpModal')" class="mt-4 text-sm text-blue-600 underline">Close</button>
+    </div>
+  </div>
+
+ <!-- Email Signup -->
+<section id="signup" class="px-6 py-12 bg-blue-50 text-center" data-aos="fade-up">
+  <h3 class="text-xl font-semibold mb-4">Sign Up for a Free Demo</h3>
+  <form onsubmit="return submitForm(event)" class="max-w-md mx-auto">
+    <input type="email" id="email" required placeholder="Enter your email"
+      class="w-full px-4 py-2 border rounded mb-4" />
+    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+      Submit
+    </button>
+  </form>
+  <p id="formMessage" class="mt-4 text-green-600 font-medium hidden">
+    ✅ Thank you! We’ll reach out soon.
+  </p>
+</section>
+
+
+  <!-- Testimonials -->
+<section class="bg-white px-6 py-16 text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold text-blue-900 mb-12">What Teams Are Saying</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+    <!-- Card 1 -->
+    <div class="relative group bg-gradient-to-tr from-blue-100 to-blue-50 p-6 rounded-2xl shadow-xl transition transform hover:-translate-y-1 hover:shadow-2xl duration-500" data-aos="zoom-in" data-aos-delay="100">
+      <div class="relative z-10">
+        <p class="text-lg font-medium text-gray-800">BridgeLink Nano saved us weeks of dev time and helped us deploy faster than ever.</p>
+        <div class="mt-6 text-left">
+          <p class="font-bold text-blue-800">Alex</p>
+          <p class="text-sm text-gray-600">Dev Lead</p>
+        </div>
+      </div>
+      <!-- Animated Glow -->
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl bg-gradient-to-r from-blue-400 via-blue-200 to-blue-100 blur-xl z-0"></div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="relative group bg-gradient-to-tr from-blue-100 to-blue-50 p-6 rounded-2xl shadow-xl transition transform hover:-translate-y-1 hover:shadow-2xl duration-500" data-aos="zoom-in" data-aos-delay="200">
+      <div class="relative z-10">
+        <p class="text-lg font-medium text-gray-800">Even our non-tech teams onboarded themselves. That’s how easy it is to use.</p>
+        <div class="mt-6 text-left">
+          <p class="font-bold text-blue-800">Priya</p>
+          <p class="text-sm text-gray-600">Ops Manager</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl bg-gradient-to-r from-blue-400 via-blue-200 to-blue-100 blur-xl z-0"></div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="relative group bg-gradient-to-tr from-blue-100 to-blue-50 p-6 rounded-2xl shadow-xl transition transform hover:-translate-y-1 hover:shadow-2xl duration-500" data-aos="zoom-in" data-aos-delay="300">
+      <div class="relative z-10">
+        <p class="text-lg font-medium text-gray-800">We integrated our old ERP system without writing a single line of code!</p>
+        <div class="mt-6 text-left">
+          <p class="font-bold text-blue-800">Marco</p>
+          <p class="text-sm text-gray-600">CTO</p>
+        </div>
+      </div>
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl bg-gradient-to-r from-blue-400 via-blue-200 to-blue-100 blur-xl z-0"></div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- About Sigma Weave -->
+<section class="bg-blue-100 px-6 py-12 text-center" data-aos="fade-up">
+  <div class="max-w-4xl mx-auto flex flex-col items-center gap-4">
+    <img src="sigma-weave-logo.png" alt="Sigma Weave Logo" class="h-14 w-auto" />
+    <h2 class="text-2xl font-semibold text-blue-900">A Product of Sigma Weave</h2>
+    <p class="text-gray-700 text-lg max-w-2xl">
+      BridgeLink Nano is proudly built by <strong>Sigma Weave</strong>, a team committed to creating smart, accessible, and scalable tech solutions. Our goal is to empower small teams with tools that deliver big results.
+    </p>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <div class="flex flex-col items-center gap-2">
+      <img src="BLNano.png" alt="Sigma Weave Logo" class="h-10 w-auto" />
+      <p>&copy; 2025 Sigma Weave | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
